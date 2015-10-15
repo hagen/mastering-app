@@ -1,0 +1,100 @@
+<core:FragmentDefinition
+  xmlns:core="sap.ui.core"
+  xmlns="sap.m"
+	xmlns:l="sap.ui.layout">
+  <Dialog
+    id="idThankYouDialog"
+    title="Thank you!"
+    contentHeight="600px"
+    contentWidth="600px">
+    <customHeader>
+      <Toolbar>
+        <ToolbarSpacer />
+        <Button
+          id="idCountDownButton"
+          text="" />
+      </Toolbar>
+    </customHeader>
+    <content>
+      <NavContainer
+        id="idNavContainer">
+        <pages>
+          <Page
+            id="idPageStart"
+            showHeader="false"
+            class="sapUiContentPadding">
+            <l:Grid
+              width="auto"
+              defaultSpan="XL12 L12 M12 S12">
+              <l:content>
+                <Title
+                  titleStyle="H1"
+                  textAlign="Center"
+                  text="Thanks {update>/names}!" />
+                <Image
+                  src="images/old_spice_thankyou.gif"
+                  class="ffaAlignImgCenter" />
+                <Text
+                  text="{= ${update>/count} > 1 ? 'Survey submissions received! Thanks for being such great sports. I\'m now going to update the charts in this Fiori app with your answers. But first...' : 'Survey submission received! Thanks for being such a great sport. I\'m now going to update the charts in this Fiori app with your answers. But first...'}"
+                  class="ffaBiggerText" />
+                <Text
+                  text="This submission has also entered you in the draw to win an Apple Watch Sport. The lucky prize winner will be notified by telephone call at conference close. Good luck!"
+                  class="ffaBiggerText" />
+              </l:content>
+            </l:Grid>
+          </Page>
+
+          <Page
+            id="idPagePrize"
+            showHeader="false"
+            class="sapUiContentPadding">
+            <l:Grid
+              width="auto"
+              defaultSpan="XL12 L12 M12 S12">
+              <l:content>
+                <Title
+                  id="idPrizeTitle"
+                  titleStyle="H1"
+                  textAlign="Center"
+                  text="Your prize" />
+                <Text
+                  id="idTextMessageExplainer"
+                  text="You should receive a text message in a few moments with instructions to claim your prize. Please have a read!"
+                  class="ffaBiggerText" />
+                <Image
+                  src="images/text_message.gif"
+                  height="200px"
+                  width="200px"
+                  class="ffaAlignImgCenter" />
+              </l:content>
+            </l:Grid>
+          </Page>
+
+          <Page
+            id="idPageJellyBeans"
+            showHeader="false"
+            class="sapUiContentPadding">
+            <l:Grid
+              width="auto"
+              defaultSpan="XL12 L12 M12 S12">
+              <l:content>
+                <Title
+                  id="idJellyBeansTitle"
+                  titleStyle="H1"
+                  textAlign="Center"
+                  text="Jelly beans" />
+                <Text
+                  id="idJellyBeansExplainer"
+                  text="And last, but certainly not least, please place your hand under our WiFi IoT Jelly Bean dispenser!"
+                  class="ffaBiggerText" />
+                <Image
+                  src="images/jelly_beans.gif"
+                  class="ffaAlignImgCenter" />
+              </l:content>
+            </l:Grid>
+          </Page>
+        </pages>
+      </NavContainer>
+    </content>
+  </Dialog>
+</core:FragmentDefinition>
