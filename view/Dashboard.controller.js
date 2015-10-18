@@ -194,7 +194,7 @@ sap.ui.define([
       jQuery.sap.delayedCall(this._dialogPrizeDelay, this, this.runPageJellyBeans, [oNavContainer]);
 
       // send an SMS
-      //this.sendSMS(this._mUpdate.getProperty("/request_id"));
+      this.sendSMS(this._mUpdate.getProperty("/request_id"));
     };
 
     /***
