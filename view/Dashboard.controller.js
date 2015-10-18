@@ -76,11 +76,12 @@ sap.ui.define([
     };
 
     Dashboard.prototype.onRunPress = function(first_argument) {
-      this.onDataAvailable({
-        status: "OK",
-        count: 1,
-        names: "Hagen"
-      });
+      // this.onDataAvailable({
+      //   status: "OK",
+      //   count: 1,
+      //   names: "Hagen"
+      // });
+      this.dispenseAsync();
     };
 
     /***
@@ -215,6 +216,9 @@ sap.ui.define([
       // And again, wait so the user can read the page
       jQuery.sap.delayedCall(this._dialogJellyBeansDelay, this, function() {
 
+        // Dispense the jelly beans
+        this.dispenseAsync();
+
         // Close dialog
         this._oThankYouDialog.close();
 
@@ -224,6 +228,25 @@ sap.ui.define([
         // nav back to start
         oNavContainer.backToTop();
       }, []);
+    };
+
+    /**
+     * Dispense Jelly Beans
+     */
+    Dashboard.prototype.dispenseAsync = function () {
+      // Call the imp agent to dispense large amount of jelly beans.
+      jQuery.ajax({
+        url: 'https://agent.electricimp.com/duqkn2dJeNrx',
+        type: 'POST',
+        async: true,
+        data : "large",
+        success: jQuery.proxy(function(oData, mResponse) {
+          sap.m.MessageToast.show("Jelly beans dispensed");
+        }, this),
+        error: jQuery.proxy(function(mError) {
+          sap.m.MessageToast.show("Jelly beans NOT dispensed");
+        }, this)
+      });
     };
 
     /**
