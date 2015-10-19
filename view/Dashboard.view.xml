@@ -14,7 +14,8 @@
 		<headerContent>
 			<Button
 				text="Run"
-				press="onRunPress" />
+				press="onRunPress"
+				visible="true" />
 		</headerContent>
 		<content>
 			<l:Grid

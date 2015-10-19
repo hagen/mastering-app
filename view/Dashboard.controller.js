@@ -16,7 +16,9 @@ sap.ui.define([
     var Dashboard = Controller.extend("ffa.mastering.view.Dashboard", /** @lends ffa.mastering.view.Dashboard.prototype */ {
       _dialogStartDelay: 12000,
       _dialogPrizeDelay: 7000,
-      _dialogJellyBeansDelay: 7000
+      _dialogJellyBeansDelay: 7000,
+      _dialogRefreshDelay: 4000,
+      _dialogJBsOnlyDelay : 8000
     });
 
     /**
@@ -81,7 +83,7 @@ sap.ui.define([
       //   count: 1,
       //   names: "Hagen"
       // });
-      this.dispenseAsync();
+      this.onNoDataAvailable();
     };
 
     /***
@@ -131,11 +133,40 @@ sap.ui.define([
      * also be how we dispense jelly beans without the need for a survey
      * @param  {object} oData Payload from socket server.
      */
-    Dashboard.prototype.onNoDataAvailable = function (oData) {
+    Dashboard.prototype.onNoDataAvailable = function(oData) {
       // This event is fired when the button is pressed, but there are no surveys
       // available to show. That is, no new surveys have been pressed.
       sap.m.MessageToast.show("No surveys submitted");
-      this.dispenseAsync();
+
+      // Load up random jelly bean texts
+      if (!this._mTexts) {
+        this._mTexts = new JSONModel('models/random_texts.json');
+        this.getView().setModel(this._mTexts, "text");
+      }
+
+      // Show the JBs only dialog...
+      if (!this._oJBsOnlyDialog) {
+        this._oJBsOnlyDialog = sap.ui.xmlfragment("idJBsOnlyFragment", "ffa.mastering.view.JellyBeansOnly", this);
+        this.getView().addDependent(this._oJBsOnlyDialog);
+      }
+
+      // Update text in dialog
+      sap.ui.core.Fragment.byId("idJBsOnlyFragment", "idJellyBeansExplainer")
+        .setText(this._mTexts.getProperty("/" + Math.floor(Math.random() * 15) + "/text"));
+
+      // reference for thank you dialog
+      var d = this._oJBsOnlyDialog;
+
+      // Open the nav container dialog
+      jQuery.sap.delayedCall(0, this, function(){d.open();}, []);
+
+      // Now we'll pop up the JBs only dialog, with a random message from Slack.
+      jQuery.sap.delayedCall(this._dialogJBsOnlyDelay, this, function() {
+        // Close dialog
+        d.close();
+      }, []);
+
+      jQuery.sap.delayedCall(this._dialogJBsOnlyDelay/1.2, this, this.dispenseAsync, []);
     };
 
     /**
@@ -207,6 +238,11 @@ sap.ui.define([
      *     ╚════╝ ╚══════╝╚══════╝╚══════╝╚═╝       ╚═════╝ ╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝
      *
      */
+    /**
+     * Supplied the nav container, this function intialises the jelly bean page,
+     * navigates to it, and dispenses jelly beans.
+     * @param  {Control} oNavContainer Nav container
+     */
     Dashboard.prototype.runPageJellyBeans = function(oNavContainer) {
       // Nav to the next page,
       oNavContainer.to(sap.ui.core.Fragment.byId("idThankYouFragment", "idPageJellyBeans"));
@@ -214,11 +250,55 @@ sap.ui.define([
       // begin the button countdown
       this.beginButtonCountDown(this._dialogJellyBeansDelay);
 
-      // And again, wait so the user can read the page
-      jQuery.sap.delayedCall(this._dialogJellyBeansDelay, this, function() {
+      // Dispense jelly beans
+      jQuery.sap.delayedCall(this._dialogJellyBeansDelay / 2, this, this.dispenseAsync(), []);
 
-        // Dispense the jelly beans
-        this.dispenseAsync();
+      // now we wait, so the user can read the screen
+      jQuery.sap.delayedCall(this._dialogJellyBeansDelay, this, this.runPageRefresh, [oNavContainer]);
+    };
+
+    /**
+     * Dispense Jelly Beans
+     */
+    Dashboard.prototype.dispenseAsync = function() {
+      // Call the imp agent to dispense large amount of jelly beans.
+      jQuery.ajax({
+        url: 'https://agent.electricimp.com/duqkn2dJeNrx',
+        type: 'POST',
+        async: true,
+        data: "medium",
+        success: jQuery.proxy(function(oData, mResponse) {
+          sap.m.MessageToast.show("Jelly beans dispensed");
+        }, this),
+        error: jQuery.proxy(function(mError) {
+          sap.m.MessageToast.show("Jelly beans NOT dispensed");
+        }, this)
+      });
+    };
+
+    /***
+     *    ██████╗  █████╗ ███████╗██╗  ██╗    ██╗   ██╗██████╗ ██████╗  █████╗ ████████╗███████╗
+     *    ██╔══██╗██╔══██╗██╔════╝██║  ██║    ██║   ██║██╔══██╗██╔══██╗██╔══██╗╚══██╔══╝██╔════╝
+     *    ██║  ██║███████║███████╗███████║    ██║   ██║██████╔╝██║  ██║███████║   ██║   █████╗
+     *    ██║  ██║██╔══██║╚════██║██╔══██║    ██║   ██║██╔═══╝ ██║  ██║██╔══██║   ██║   ██╔══╝
+     *    ██████╔╝██║  ██║███████║██║  ██║    ╚██████╔╝██║     ██████╔╝██║  ██║   ██║   ███████╗
+     *    ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝     ╚═════╝ ╚═╝     ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚══════╝
+     *
+     */
+    /**
+     * Supplied the nav container, this function intialises the refresh page,
+     * shows a message, and then closes the thank you dialog
+     * @param  {Control} oNavContainer Nav container
+     */
+    Dashboard.prototype.runPageRefresh = function(oNavContainer) {
+      // Nav to the next page,
+      oNavContainer.to(sap.ui.core.Fragment.byId("idThankYouFragment", "idPageRefresh"));
+
+      // begin the button countdown
+      this.beginButtonCountDown(this._dialogRefreshDelay);
+
+      // And again, wait so the user can read the page
+      jQuery.sap.delayedCall(this._dialogRefreshDelay, this, function() {
 
         // Close dialog
         this._oThankYouDialog.close();
@@ -229,25 +309,6 @@ sap.ui.define([
         // nav back to start
         oNavContainer.backToTop();
       }, []);
-    };
-
-    /**
-     * Dispense Jelly Beans
-     */
-    Dashboard.prototype.dispenseAsync = function () {
-      // Call the imp agent to dispense large amount of jelly beans.
-      jQuery.ajax({
-        url: 'https://agent.electricimp.com/duqkn2dJeNrx',
-        type: 'POST',
-        async: true,
-        data : "medium",
-        success: jQuery.proxy(function(oData, mResponse) {
-          sap.m.MessageToast.show("Jelly beans dispensed");
-        }, this),
-        error: jQuery.proxy(function(mError) {
-          sap.m.MessageToast.show("Jelly beans NOT dispensed");
-        }, this)
-      });
     };
 
     /**
@@ -319,12 +380,12 @@ sap.ui.define([
      *
      */
 
-     /**
-      * Send SMS text messages to all persons submitted with this survey id.
-      * The server will handle finding and sending, we just initiate.
-      * @param  {String} sId Survey request id
-      */
-    Dashboard.prototype.sendSMS = function (sId) {
+    /**
+     * Send SMS text messages to all persons submitted with this survey id.
+     * The server will handle finding and sending, we just initiate.
+     * @param  {String} sId Survey request id
+     */
+    Dashboard.prototype.sendSMS = function(sId) {
       jQuery.ajax({
         url: '/sms/send/' + sId,
         type: 'GET',
