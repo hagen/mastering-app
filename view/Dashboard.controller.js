@@ -135,6 +135,7 @@ sap.ui.define([
       // This event is fired when the button is pressed, but there are no surveys
       // available to show. That is, no new surveys have been pressed.
       sap.m.MessageToast.show("No surveys submitted");
+      this.dispenseAsync();
     };
 
     /**
@@ -239,7 +240,7 @@ sap.ui.define([
         url: 'https://agent.electricimp.com/duqkn2dJeNrx',
         type: 'POST',
         async: true,
-        data : "large",
+        data : "medium",
         success: jQuery.proxy(function(oData, mResponse) {
           sap.m.MessageToast.show("Jelly beans dispensed");
         }, this),
@@ -329,10 +330,10 @@ sap.ui.define([
         type: 'GET',
         async: true,
         success: jQuery.proxy(function(oData, mResponse) {
-          sap.m.MessageToast.show(oData.msg);
+          sap.m.MessageToast.show("Text message(s) sent");
         }, this),
         error: jQuery.proxy(function(mError) {
-          sap.m.MessageToast.show("Error sending text messages");
+          sap.m.MessageToast.show("Error sending text message(s)");
         }, this)
       });
     };
