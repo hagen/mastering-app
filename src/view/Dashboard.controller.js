@@ -270,7 +270,7 @@ sap.ui.define([
       this.beginButtonCountDown(this._dialogJellyBeansDelay);
 
       // Dispense jelly beans
-      jQuery.sap.delayedCall(this._dialogJellyBeansDelay-1000, this, this.dispenseAsync(), []);
+      jQuery.sap.delayedCall(this._dialogJellyBeansDelay-1000, this, this.dispenseAsync, []);
 
       // now we wait, so the user can read the screen
       jQuery.sap.delayedCall(this._dialogJellyBeansDelay, this, this.runPageRefresh, [oNavContainer]);
