@@ -81,7 +81,8 @@ module.exports = function(app, io) {
             msg.request_id = doc.id;
             msg.count = doc.count;
             msg.names = doc.names;
-            msg.jelly_beans = doc.count * 3 + 1;
+            msg.presses = results[0].total;
+            msg.jelly_beans = results[0].total * 3 + 1;
 
             // Write answers to DB, referencing parent survey
             json.responses.forEach(function(r, i, responses) {

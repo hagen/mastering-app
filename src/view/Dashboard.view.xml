@@ -29,8 +29,8 @@
 					<MessageStrip
 						id="idMessageStrip"
 						class="sapUiMediumMargin"
-						type="{= ${update>/count} > 0 ? 'Success' : 'Information' }"
-						text="{= ${update>/count} > 0 ? ${update>/count} + ' button presses and approx. ' + ${update>/jelly_beans} + ' jelly beans dispensed' : 'Waiting for a button press' }" >
+						type="{= ${update>/presses} > 0 ? 'Success' : 'Information' }"
+						text="{= ${update>/presses} > 0 ? 'A total of  ' + ${update>/presses} + ' button presses, and approx. ' + ${update>/jelly_beans} + ' jelly beans dispensed, at Mastering Analytics' : 'Waiting for a button press' }" >
 						<layoutData>
 							<l:GridData span="XL12 L12 M12 S12" />
 						</layoutData>
