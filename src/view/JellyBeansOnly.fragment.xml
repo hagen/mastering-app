@@ -1,0 +1,39 @@
+<core:FragmentDefinition
+  xmlns:core="sap.ui.core"
+  xmlns="sap.m"
+	xmlns:l="sap.ui.layout">
+  <Dialog
+    id="idJellyBeansOnlyDialog"
+    title="Jelly Beans!"
+    contentHeight="450px"
+    contentWidth="400px">
+    <content>
+
+      <Page
+        id="idPageJellyBeans"
+        showHeader="false"
+        class="sapUiContentPadding">
+        <l:Grid
+          width="auto"
+          defaultSpan="XL12 L12 M12 S12">
+          <l:content>
+            <Title
+              id="idJellyBeansTitle"
+              titleStyle="H1"
+              textAlign="Center"
+              text="Jelly beans, jelly beans, jelly beans!" />
+            <Text
+              text="Please place your hand under the dispenser"
+              class="ffaBiggerText" />
+            <Image
+              src="images/jelly_beans.gif"
+              class="ffaAlignImgCenter" />
+            <Text
+              id="idJellyBeansExplainer"
+              class="ffaBiggerText" />
+          </l:content>
+        </l:Grid>
+      </Page>
+    </content>
+  </Dialog>
+</core:FragmentDefinition>

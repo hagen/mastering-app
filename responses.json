@@ -1,0 +1,207 @@
+{
+  "http_status": 200,
+  "stats": {
+    "responses": {
+      "showing": 4,
+      "total": 13,
+      "completed": 4
+    }
+  },
+  "questions": [{
+    "id": "statement_12057137",
+    "question": "First up, let's get to know each other. We're going to grab your name, job description and a mobile number."
+  }, {
+    "id": "textfield_12057140",
+    "question": "May we have your first name?"
+  }, {
+    "id": "textfield_12057141",
+    "question": "Great, thanks {{answer_12057140}}. And what's your position at your organisation?"
+  }, {
+    "id": "number_12057142",
+    "question": "{{answer_12057141}}, hey? Sweet gig!<br \/>May I also collect your mobile phone number?"
+  }, {
+    "id": "statement_12057138",
+    "question": "Now, we're going to get a feel for your organisation's analytics <em>current state<\/em>"
+  }, {
+    "id": "opinionscale_12057143",
+    "question": "How would you rate your organisation's <em>analytics maturity<\/em>?"
+  }, {
+    "id": "list_12057144_choice",
+    "question": "To what extent do you consider your organisation's decision making is <em>data driven<\/em>?"
+  }, {
+    "id": "list_12058057_choice_14932697",
+    "question": "What challenges do you currently face in BI?"
+  }, {
+    "id": "list_12058057_choice_14932698",
+    "question": "What challenges do you currently face in BI?"
+  }, {
+    "id": "list_12058057_choice_14932699",
+    "question": "What challenges do you currently face in BI?"
+  }, {
+    "id": "list_12058057_choice_14932700",
+    "question": "What challenges do you currently face in BI?"
+  }, {
+    "id": "list_12058057_choice_14932701",
+    "question": "What challenges do you currently face in BI?"
+  }, {
+    "id": "list_12058057_choice_14932702",
+    "question": "What challenges do you currently face in BI?"
+  }, {
+    "id": "list_12057145_choice",
+    "question": "How many scenarios in your business can you think of that can benefit from analytics\/data science?"
+  }, {
+    "id": "rating_12057146",
+    "question": "How important do you think data science is to your ongoing competitiveness?"
+  }, {
+    "id": "statement_12057139",
+    "question": "Great job {{answer_12057140}}, only a few more questions to go..."
+  }, {
+    "id": "opinionscale_12058156",
+    "question": "Did you know your data science research can be crafted into a Fiori application for ongoing use?"
+  }, {
+    "id": "list_12058205_choice",
+    "question": "What degree of improvement in your predictive forecasting accuracy would be sufficient to initiate a project?"
+  }, {
+    "id": "statement_12058252",
+    "question": "Forefront techniques have proven to increase forecast accuracy by over 20% for our clients."
+  }, {
+    "id": "yesno_12057149",
+    "question": "Would you consider using a niche firm that specialises in HANA and Predictive Analytics?"
+  }, {
+    "id": "list_12101959_choice",
+    "question": "Would your organisation consider using a small firm that specialises in HANA and Predictive Analytics?"
+  }],
+  "responses": [{
+    "id": "5",
+    "completed": "1",
+    "token": "810048d5bbf878aea5152ded9c4131f4",
+    "metadata": {
+      "browser": "touch",
+      "platform": "mobile",
+      "date_land": "2015-10-12 05:36:20",
+      "date_submit": "2015-10-12 05:38:51",
+      "user_agent": "Mozilla\/5.0 (iPhone; CPU iPhone OS 9_0_2 like Mac OS X) AppleWebKit\/601.1.46 (KHTML, like Gecko) Version\/9.0 Mobile\/13A452 Safari\/601.1",
+      "referer": "https:\/\/forefrontanakytics.typeform.com\/to\/Dulz8p",
+      "network_id": "3d26ae00bebed1577de99c0c5ae3f85d3621439e"
+    },
+    "hidden": [],
+    "answers": {
+      "textfield_12057140": "Hagen",
+      "textfield_12057141": "Employee ",
+      "number_12057142": "417112941",
+      "opinionscale_12057143": "10",
+      "list_12057144_choice": "No data = ship without rudder",
+      "list_12058057_choice_14932697": "Data quality",
+      "list_12058057_choice_14932698": "",
+      "list_12058057_choice_14932699": "ROI",
+      "list_12058057_choice_14932700": "",
+      "list_12058057_choice_14932701": "Cost efficiency",
+      "list_12058057_choice_14932702": "",
+      "list_12057145_choice": "Hmmm, a couple",
+      "rating_12057146": "9",
+      "opinionscale_12058156": "8",
+      "list_12058205_choice": "10-20%",
+      "yesno_12057149": "1",
+      "list_12101959_choice": ""
+    }
+  }, {
+    "id": "7",
+    "completed": "1",
+    "token": "d79fdcbe1c215e78ac59dbf988dd8e2d",
+    "metadata": {
+      "browser": "touch",
+      "platform": "mobile",
+      "date_land": "2015-10-12 06:36:23",
+      "date_submit": "2015-10-12 06:40:33",
+      "user_agent": "Mozilla\/5.0 (iPhone; CPU iPhone OS 8_4 like Mac OS X) AppleWebKit\/600.1.4 (KHTML, like Gecko) Version\/8.0 Mobile\/12H143 Safari\/600.1.4",
+      "referer": "https:\/\/forefrontanalytics.typeform.com\/to\/Dulz8p",
+      "network_id": "99f67d1b227ec5a37e5cd3368743da1c42d5dc2b"
+    },
+    "hidden": [],
+    "answers": {
+      "textfield_12057140": "Gavin",
+      "textfield_12057141": "Bus Dev & HR",
+      "number_12057142": "400933849",
+      "opinionscale_12057143": "3",
+      "list_12057144_choice": "We should do more",
+      "list_12058057_choice_14932697": "Data quality",
+      "list_12058057_choice_14932698": "",
+      "list_12058057_choice_14932699": "ROI",
+      "list_12058057_choice_14932700": "Risk",
+      "list_12058057_choice_14932701": "",
+      "list_12058057_choice_14932702": "",
+      "list_12057145_choice": "A few",
+      "rating_12057146": "7",
+      "opinionscale_12058156": "6",
+      "list_12058205_choice": "0-5%",
+      "yesno_12057149": "1",
+      "list_12101959_choice": ""
+    }
+  }, {
+    "id": "10",
+    "completed": "1",
+    "token": "475313b58b75baefade4f6d12518be77",
+    "metadata": {
+      "browser": "touch",
+      "platform": "mobile",
+      "date_land": "2015-10-12 07:22:17",
+      "date_submit": "2015-10-12 07:26:14",
+      "user_agent": "Mozilla\/5.0 (iPhone; CPU iPhone OS 8_3 like Mac OS X) AppleWebKit\/600.1.4 (KHTML, like Gecko) Version\/8.0 Mobile\/12F70 Safari\/600.1.4",
+      "referer": "https:\/\/forefrontanalytics.typeform.com\/to\/Dulz8p",
+      "network_id": "2bd2016b3b4202b513bf36aa2438414f79724da9"
+    },
+    "hidden": [],
+    "answers": {
+      "textfield_12057140": "Kim",
+      "textfield_12057141": "Manager",
+      "number_12057142": "457075200",
+      "opinionscale_12057143": "7",
+      "list_12057144_choice": "We should do more",
+      "list_12058057_choice_14932697": "Data quality",
+      "list_12058057_choice_14932698": "",
+      "list_12058057_choice_14932699": "ROI",
+      "list_12058057_choice_14932700": "",
+      "list_12058057_choice_14932701": "",
+      "list_12058057_choice_14932702": "",
+      "list_12057145_choice": "So many, my mind hurts",
+      "rating_12057146": "10",
+      "opinionscale_12058156": "2",
+      "list_12058205_choice": "10-20%",
+      "yesno_12057149": "0",
+      "list_12101959_choice": ""
+    }
+  }, {
+    "id": "11",
+    "completed": "1",
+    "token": "0d9c919b0c5bf478ed5388bf3636abf6",
+    "metadata": {
+      "browser": "touch",
+      "platform": "mobile",
+      "date_land": "2015-10-12 07:56:40",
+      "date_submit": "2015-10-12 07:59:26",
+      "user_agent": "Mozilla\/5.0 (iPhone; CPU iPhone OS 8_4 like Mac OS X) AppleWebKit\/600.1.4 (KHTML, like Gecko) Version\/8.0 Mobile\/12H143 Safari\/600.1.4",
+      "referer": "https:\/\/forefrontanalytics.typeform.com\/to\/Dulz8p",
+      "network_id": "0d8a659b4ce8e8bb54c1e7b8c916c49f1e3ec87a"
+    },
+    "hidden": [],
+    "answers": {
+      "textfield_12057140": "Ipee freely",
+      "textfield_12057141": "Toilet",
+      "number_12057142": "469696969",
+      "opinionscale_12057143": "7",
+      "list_12057144_choice": "Huh?",
+      "list_12058057_choice_14932697": "",
+      "list_12058057_choice_14932698": "User adoption",
+      "list_12058057_choice_14932699": "ROI",
+      "list_12058057_choice_14932700": "",
+      "list_12058057_choice_14932701": "",
+      "list_12058057_choice_14932702": "",
+      "list_12057145_choice": "So many, my mind hurts",
+      "rating_12057146": "7",
+      "opinionscale_12058156": "7",
+      "list_12058205_choice": "10-20%",
+      "yesno_12057149": "1",
+      "list_12101959_choice": ""
+    }
+  }]
+}
