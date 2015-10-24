@@ -21,7 +21,7 @@
               id="idJellyBeansTitle"
               titleStyle="H1"
               textAlign="Center"
-              text="Jelly beans, jelly beans, jelly beans!" />
+              text="Jelly beans, jelly beans!" />
             <Text
               text="Please place your hand under the dispenser"
               class="ffaBiggerText" />

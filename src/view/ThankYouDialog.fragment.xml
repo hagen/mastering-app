@@ -59,7 +59,7 @@
                   text="Your prize" />
                 <Text
                   id="idTextMessageExplainer"
-                  text="You should receive a text message in a few moments with instructions to claim your prize. Please have a read!"
+                  text="We're also going to send you a text message in a few moments. A small thank you, and a reminder of the prize draw!"
                   class="ffaBiggerText" />
                 <Image
                   src="images/text_message.gif"
@@ -85,7 +85,7 @@
                   text="Jelly beans" />
                 <Text
                   id="idJellyBeansExplainer"
-                  text="And last, but certainly not least, please place your hand under our WiFi IoT Jelly Bean dispenser!"
+                  text="Here come your jelly beans! Please place your hand under our WiFi IoT candy dispenser!"
                   class="ffaBiggerText" />
                 <Image
                   src="images/jelly_beans.gif"
@@ -107,7 +107,7 @@
                   textAlign="Center"
                   text="Dashboard updating" />
                 <Text
-                  text="And now the UI5 dashboard will update to reflect the submitted results."
+                  text="And last, but certainly not least, the UI5 dashboard will auto update to reflect your submitted results."
                   class="ffaBiggerText" />
               </l:content>
             </l:Grid>
