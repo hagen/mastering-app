@@ -35,7 +35,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 // Serve up static app files; this is not required for mobile packaging
-app.use(express.static('../mastering-app'));
+app.use(express.static('./src'));
 
 // SDK is always hosted outside of the app directory, and incorporated with
 // a virtual path for serving to the app
