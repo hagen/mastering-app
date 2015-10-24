@@ -25,7 +25,7 @@ var tweets = [
   "BoothBot: Great to see you [name], enjoy those blue and green jules of joy @masteringsap #BSE2015"
 ];
 
-module.exports = function(to) {
+module.exports = function() {
   app.get('/twitter/post/:request_id', function(req, res) {
     // When this GET endpoint is called, it triggers a refresh of the survey
     // results in to the database, which we then use to populate the dashboard
