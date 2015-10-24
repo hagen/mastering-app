@@ -6,5 +6,5 @@ module.exports = function(app) {
   });
 
   // Hand off to twitter handler
-  require("../twitter");
+  require("../twitter")(app);
 }
