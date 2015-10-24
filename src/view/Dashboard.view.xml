@@ -107,7 +107,7 @@
 
 					<!-- Jelly bean counter -->
 					<Text
-						id="idPressesText"
+						id="idJellyBeansText"
 						class="ffaJellyBeansText"
 						text="{= ${update>/jelly_beans} > 0 ? 'Approx. ' + ${update>/jelly_beans} + ' jelly beans dispensed' : 'No jelly beans dispensed since refresh' }" />
         </l:content>
