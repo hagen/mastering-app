@@ -32,6 +32,8 @@ sap.ui.define([
 
       // set up socket listener
       var self = this;
+
+      // Handles submissions of survey with button press
       socket.on("surveys processed", function(oData) {
         if (this._bRunning) {
           this._aQueue.push(oData);
@@ -40,8 +42,18 @@ sap.ui.define([
           self.onDataAvailable(oData);
         }
       });
+
+      // Handles presses of the button, when a survey hasn't been submitted.
       socket.on("no surveys processed", function(oData) {
-        self.onNoDataAvailable(oData);
+        if (!this._bRunning) {
+          self.onNoDataAvailable(oData);
+        } else {
+          if (this._aQueue > 1) {
+            sap.m.MessageToast("Please wait until previous requests processed...");
+          } else {
+            sap.m.MessageToast("Please wait until previous request processed...");
+          }
+        }
       });
     };
 
