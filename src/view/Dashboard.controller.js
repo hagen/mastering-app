@@ -18,9 +18,7 @@ sap.ui.define([
       _dialogPrizeDelay: 7000,
       _dialogJellyBeansDelay: 7000,
       _dialogRefreshDelay: 4000,
-      _dialogJBsOnlyDelay : 8000,
-      _aQueue : [],
-      _bRunning : false
+      _dialogJBsOnlyDelay : 8000
     });
 
     /**
@@ -35,25 +33,12 @@ sap.ui.define([
 
       // Handles submissions of survey with button press
       socket.on("surveys processed", function(oData) {
-        if (this._bRunning) {
-          this._aQueue.push(oData);
-        } else {
-          this._bRunning = true;
-          self.onDataAvailable(oData);
-        }
+        self.onDataAvailable(oData);
       });
 
       // Handles presses of the button, when a survey hasn't been submitted.
       socket.on("no surveys processed", function(oData) {
-        if (!this._bRunning) {
-          self.onNoDataAvailable(oData);
-        } else {
-          if (this._aQueue > 1) {
-            sap.m.MessageToast.show("Please wait until previous requests processed...");
-          } else {
-            sap.m.MessageToast.show("Please wait until previous request processed...");
-          }
-        }
+        self.onNoDataAvailable(oData);
       });
     };
 
@@ -330,14 +315,6 @@ sap.ui.define([
 
         // nav back to start
         oNavContainer.backToTop();
-
-        // if there are any queued requests, process them.
-        if (this._aQueue.length > 0) {
-          // run on data available for the queued request
-          this.onDataAvailable(this._aQueue.pop());
-        } else {
-          this._bRunning = false;
-        }
       }, []);
     };
 
