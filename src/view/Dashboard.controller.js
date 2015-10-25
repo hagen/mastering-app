@@ -170,7 +170,7 @@ sap.ui.define([
         d.close();
       }, []);
 
-      jQuery.sap.delayedCall(this._dialogJBsOnlyDelay/1.2, this, this.dispenseAsync, []);
+      jQuery.sap.delayedCall(3000, this, this.dispenseAsync, []);
     };
 
     /**
