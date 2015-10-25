@@ -49,9 +49,9 @@ sap.ui.define([
           self.onNoDataAvailable(oData);
         } else {
           if (this._aQueue > 1) {
-            sap.m.MessageToast("Please wait until previous requests processed...");
+            sap.m.MessageToast.show("Please wait until previous requests processed...");
           } else {
-            sap.m.MessageToast("Please wait until previous request processed...");
+            sap.m.MessageToast.show("Please wait until previous request processed...");
           }
         }
       });
